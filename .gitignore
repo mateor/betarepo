@@ -1,0 +1,7 @@
+.cache/
+.pants.d/
+.pants.workdir.file_lock
+__pycache__/
+dist/
+*.pyc
+.DS_Store
