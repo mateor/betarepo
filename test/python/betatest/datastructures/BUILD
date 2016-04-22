@@ -3,8 +3,10 @@
 # Copyright (c) 2016 mateor
 
 python_tests(
-  name = 'sorting',
-  sources = globs('*.py'),
+  name = 'test_comparison_mixin',
+  sources = [
+    'test_comparison_mixin.py'
+  ],
   dependencies = [
     'src/python/betarepo/algorithms/sorting',
   ]
