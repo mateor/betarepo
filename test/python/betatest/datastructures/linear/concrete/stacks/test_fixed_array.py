@@ -17,22 +17,18 @@ class FixedArrayTest(StackTestBase, unittest.TestCase):
 
   @classmethod
   def stack_class(cls):
-    """Subclasses must return the Stack class the tests need to exercise."""
+    # Used by the tests in stack_test_base.
     return FixedArrayStack
 
   @classmethod
-  def capacity(cls):
-    """Subclasses must return the Stack class the tests need to exercise."""
+  def default_capacity(cls):
+    # Used by the tests in stack_test_base.
     return DEFAULT_CAPACITY
-
-  def test_pop_but_no_items(self):
-    with self.assertRaises(StackException):
-      self.stack.pop()
 
   def test_stack_overflow(self):
     self.assertTrue(self.stack.is_empty())
-    for i in range(self.default_capacity):
+    for i in range(self.capacity):
       self.stack.push(i)
-    self.assertEqual(self.stack.size, self.default_capacity)
+    self.assertEqual(self.stack.size, self.capacity)
     with self.assertRaises(StackException):
-      self.stack.push(self.default_capacity + 1)
+      self.stack.push(self.capacity + 1)

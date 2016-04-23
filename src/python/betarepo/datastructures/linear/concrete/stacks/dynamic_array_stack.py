@@ -12,19 +12,19 @@ from betarepo.datastructures.linear.abstract.stack import Stack
 
 DEFAULT_GROWTH_FACTOR = 1.5
 
-class DynamicArrayStack(FixedArrayStack):
+class DynamicArrayStack(Stack):
 
-  def resize(self):
-    new_size = int(self.stack.capacity * self.growth_factor)
-    resized_stack = FixedArrayStack(capacity=new_size)
-    for i in self.stack:
-      resized_stack.push(i)
-    self.stack = resized_stack
+
+  # TOD(mateo): Refactor in a major way. This is too much code for this idea.
+  # The issue is that this models best if the DynamicArray implements a a wrapper around the FixedArray.
+  # BUt then it requires all these method wrapper - there is a better way.
+
+
+  # Maybe a decorator - although I don't want it adding noise perf analysis.
 
   def __init__(self, capacity=None, growth_factor=None):
     self.growth_factor = growth_factor or DEFAULT_GROWTH_FACTOR
     self.stack = FixedArrayStack(capacity)
-
 
   def __len__(self):
     return len(self.stack)
@@ -45,6 +45,10 @@ class DynamicArrayStack(FixedArrayStack):
   def size(self):
     return self.stack.size
 
+  @property
+  def capacity(self):
+    return self.stack.capacity
+
   def push(self, value):
     try:
       self.stack.push(value)
@@ -60,3 +64,10 @@ class DynamicArrayStack(FixedArrayStack):
 
   def make_empty(self):
     return self.stack.make_empty()
+
+  def resize(self):
+    new_size = int(self.stack.capacity * self.growth_factor)
+    resized_stack = FixedArrayStack(capacity=new_size)
+    for i in self.stack:
+      resized_stack.push(i)
+    self.stack = resized_stack

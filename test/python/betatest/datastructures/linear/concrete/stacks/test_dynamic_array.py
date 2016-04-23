@@ -8,7 +8,7 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 import unittest
 
 from betarepo.datastructures.linear.concrete.stacks.fixed_array_stack import StackException
-from betarepo.datastructures.linear.concrete.stacks.dynamic_array_stack import DynamicArrayStack
+from betarepo.datastructures.linear.concrete.stacks.dynamic_array_stack import DynamicArrayStack, DEFAULT_GROWTH_FACTOR
 
 from betatest.datastructures.linear.concrete.stacks.stack_test_base import StackTestBase
 
@@ -17,20 +17,23 @@ class DynamicArrayTest(StackTestBase, unittest.TestCase):
 
   @classmethod
   def stack_class(cls):
-    """Subclasses must return the Stack class the tests need to exercise."""
+    # Used by the tests in stack_test_base.
     return DynamicArrayStack
 
   @classmethod
-  def capacity(cls):
+  def default_capacity(cls):
+    # Used by the tests in stack_test_base.
     return None
-
-  def test_pop_but_no_items(self):
-    with self.assertRaises(StackException):
-      self.stack.pop()
 
   def test_no_stack_overflow(self):
     self.assertTrue(self.stack.is_empty())
-    for i in range(self.default_capacity):
-      self.stack.push(i)
-    self.assertEqual(self.stack.size, self.default_capacity)
+    self.fill_stack(self.stack)
+    self.assertEqual(self.stack.size, self.capacity)
     self.stack.push(100)
+
+  def test_resizing(self):
+    self.fill_stack(self.stack)
+    self.assertEqual(self.stack.size, self.capacity)
+    self.stack.push(99)    
+    self.assertEqual(self.stack.capacity, self.capacity * DEFAULT_GROWTH_FACTOR)
+
