@@ -9,25 +9,29 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 from abc import ABCMeta, abstractmethod
 
 
-class StackException(Exception):
+class ListError(Exception):
   """Raise when a stack method would cause the stack to reach an illegal state,."""
 
 
-class Stack(object):
+class List(object):
   __metaclass__ = ABCMeta
 
   @abstractmethod
-  def push(self, x):
+  def insert(self, item):
     pass
 
   @abstractmethod
-  def pop(self):
+  def remove(self, index):
+    pass
+
+  @abstractmethod
+  def find(self, item):
+    pass
+
+  @abstractmethod
+  def find_at_index(self, index):
     pass
 
   @abstractmethod
   def is_empty(self):
-    pass
-
-  @abstractmethod
-  def make_empty(self):
     pass
