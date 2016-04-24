@@ -9,7 +9,10 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 from abc import ABCMeta, abstractmethod
 
 
-# TODO(mateo) Maybe move these to datastructures.linear.abstract.queue instead.
+# TODO(mateo): Define a LinearException in some betarepo base exception class? Would that be useful in perf testing?
+class QueueException(Exception):
+  """Raise when a stack method would cause the stack to reach an illegal state,."""
+
 
 class Queue(object):
   __metaclass__ = ABCMeta
@@ -23,7 +26,4 @@ class Queue(object):
     raise NotImplementedError
 
   def is_empty(self):
-    raise NotImplementedError
-
-  def make_empty(self):
     raise NotImplementedError

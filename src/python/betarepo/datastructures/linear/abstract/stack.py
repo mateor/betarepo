@@ -9,6 +9,10 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 from abc import ABCMeta, abstractmethod
 
 
+class StackException(Exception):
+  """Raise when a stack method would cause the stack to reach an illegal state,."""
+
+
 class Stack(object):
   __metaclass__ = ABCMeta
 

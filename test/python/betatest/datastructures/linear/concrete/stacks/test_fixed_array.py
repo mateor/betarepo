@@ -7,8 +7,8 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 
 import unittest
 
-from betarepo.datastructures.linear.concrete.stacks.fixed_array_stack import (
-  DEFAULT_CAPACITY, FixedArrayStack, StackException)
+from betarepo.datastructures.linear.abstract.stacks.stack import StackException
+from betarepo.datastructures.linear.concrete.stacks.fixed_array_stack import DEFAULT_CAPACITY, FixedArrayStack
 
 from betatest.datastructures.linear.concrete.stacks.stack_test_base import StackTestBase
 

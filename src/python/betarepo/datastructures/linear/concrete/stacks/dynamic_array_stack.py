@@ -6,21 +6,28 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
                         unicode_literals, with_statement)
 
 
-from betarepo.datastructures.linear.concrete.stacks.fixed_array_stack import FixedArrayStack, StackException
-from betarepo.datastructures.linear.abstract.stack import Stack
+from betarepo.datastructures.linear.concrete.stacks.fixed_array_stack import FixedArrayStack
+from betarepo.datastructures.linear.abstract.stack import Stack, StackException
 
 
 DEFAULT_GROWTH_FACTOR = 1.5
 
 class DynamicArrayStack(Stack):
+  """
+  Overallocate the array if pushing an item to an already full stack.
 
+  The array size grows by a factor of a, and inserting n elements takes O(n) time overall - so each insertion is
+  constant amortized time.
+   """
 
-  # TOD(mateo): Refactor in a major way. This is too much code for this idea.
+  # TOD)(mateo): Refactor in a major way. This is too much code for this idea.
   # The issue is that this models best if the DynamicArray implements a a wrapper around the FixedArray.
   # BUt then it requires all these method wrapper - there is a better way.
 
-
   # Maybe a decorator - although I don't want it adding noise perf analysis.
+
+
+  # TODO(deallocate - must be a threshold less than 1/a to proovide hysteresis)
 
   def __init__(self, capacity=None, growth_factor=None):
     self.growth_factor = growth_factor or DEFAULT_GROWTH_FACTOR

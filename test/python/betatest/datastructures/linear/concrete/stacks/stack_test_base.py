@@ -5,8 +5,7 @@
 from __future__ import (absolute_import, division, generators, nested_scopes, print_function,
                         unicode_literals, with_statement)
 
-# TODO(mateo): Create a base exceptions module.
-from betarepo.datastructures.linear.concrete.stacks.fixed_array_stack import StackException
+from betarepo.datastructures.linear.abstract.stacks.stack import StackException
 
 # TODO(mateo): Enforce that this is an abstract class. Maybe scrap it entirely.
 class StackTestBase(object):

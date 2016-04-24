@@ -6,13 +6,10 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
                         unicode_literals, with_statement)
 
 
-from betarepo.datastructures.linear.abstract.stack import Stack
+from betarepo.datastructures.linear.abstract.stack import Stack, StackException
+
 
 DEFAULT_CAPACITY = 10
-
-# TODO(mateo): This needs to be more accesible to other stacks.
-class StackException(Exception):
-  """Raise when a stack method would cause the stack to reach an illegal state,."""
 
 class FixedArrayStack(Stack):
   """A list-based LIFO stack that raises a StackException on overflow/underflow."""

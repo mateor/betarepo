@@ -2,8 +2,6 @@
 # The MIT License (MIT)
 # Copyright (c) 2016 mateor
 
-
-
 python_library(
   name = 'stack_base',
   sources = ['stack_test_base.py'],

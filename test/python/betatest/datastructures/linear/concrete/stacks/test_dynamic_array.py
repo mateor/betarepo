@@ -7,10 +7,9 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 
 import unittest
 
-from betarepo.datastructures.linear.concrete.stacks.fixed_array_stack import StackException
 from betarepo.datastructures.linear.concrete.stacks.dynamic_array_stack import DynamicArrayStack, DEFAULT_GROWTH_FACTOR
 
-from betatest.datastructures.linear.concrete.stacks.stack_test_base import StackTestBase
+from betatest.datastructures.linear.concrete.stacks.stack_test_base import StackTestBase, StackException
 
 
 class DynamicArrayTest(StackTestBase, unittest.TestCase):
@@ -34,6 +33,6 @@ class DynamicArrayTest(StackTestBase, unittest.TestCase):
   def test_resizing(self):
     self.fill_stack(self.stack)
     self.assertEqual(self.stack.size, self.capacity)
-    self.stack.push(99)    
+    self.stack.push(99)
     self.assertEqual(self.stack.capacity, self.capacity * DEFAULT_GROWTH_FACTOR)
 
