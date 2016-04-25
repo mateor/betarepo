@@ -8,11 +8,11 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 
 import unittest
 
-from betarepo.datastructures.linear.abstract.queue import Queue, QueueException
+from betarepo.datastructures.linear.abstract.queue import QueueException
 from betarepo.datastructures.linear.concrete.queues.circular_queue import CircularQueue, DEFAULT_CAPACITY
 
 
-class TestArrayQueue(unittest.TestCase):
+class TestCircularQueue(unittest.TestCase):
 
   @property
   def queue_class(cls):

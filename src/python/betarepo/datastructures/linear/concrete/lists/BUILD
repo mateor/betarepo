@@ -3,7 +3,7 @@
 # Copyright (c) 2016 mateor
 
 python_library(
-  name = 'queues',
+  name = 'lists',
   sources = globs('*.py'),
   dependencies = [
     'src/python/betarepo/datastructures/linear/abstract',

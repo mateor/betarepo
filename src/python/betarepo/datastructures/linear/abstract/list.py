@@ -9,7 +9,7 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 from abc import ABCMeta, abstractmethod
 
 
-class ListError(Exception):
+class ListException(Exception):
   """Raise when a stack method would cause the stack to reach an illegal state,."""
 
 
@@ -21,7 +21,7 @@ class List(object):
     pass
 
   @abstractmethod
-  def remove(self, index):
+  def remove(self, index=None):
     pass
 
   @abstractmethod

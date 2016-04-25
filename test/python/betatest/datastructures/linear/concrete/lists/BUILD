@@ -2,10 +2,10 @@
 # The MIT License (MIT)
 # Copyright (c) 2016 mateor
 
-python_library(
-  name = 'queues',
+python_tests(
+  name = 'lists',
   sources = globs('*.py'),
   dependencies = [
-    'src/python/betarepo/datastructures/linear/abstract',
+    'src/python/betarepo/datastructures/linear/concrete/lists',
   ]
 )
