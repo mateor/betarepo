@@ -121,6 +121,23 @@ class TestLinkedList(unittest.TestCase):
     self.assertEqual(a_list.head.value, 'good')
     self.assertEqual(a_list.tail.value, 'good')
 
+  def test_delete_all_instances_tail_set_properly(self):
+    a_list = self.sample_list()
+    for i in range(3):
+      a_list.insert('evil')
+    for i in range(3):
+      a_list.insert('good')
+    for i in range(3):
+      a_list.insert('evil')
+    self.assertEqual(len(a_list), 9)
+    a_list.delete_all_instances('evil')
+    self.assertEqual(len(a_list), 3)
+    for i in a_list:
+      self.assertEqual(i.value, 'good')
+    a_list.insert('evil2')
+    self.assertEqual(a_list.tail.value, 'evil2')
+    self.assertEqual(len(a_list), 4)
+
   def test_len_operator(self):
     a_list = LinkedList()
     self.assertEqual(len(a_list), 0)

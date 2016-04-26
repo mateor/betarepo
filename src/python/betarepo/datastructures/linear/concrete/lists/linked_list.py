@@ -12,9 +12,13 @@ from betarepo.datastructures.linear.abstract.list import List, ListException
 class LinkedList(object):
 
   class Node(object):
+
     def __init__(self, value, next=None):
       self.value = value
       self.next = None
+
+    def __repr__(self):
+      return repr(self.value)
 
   def __init__(self):
     self.head = None
@@ -86,6 +90,7 @@ class LinkedList(object):
     while node and node.value == value:
       node = node.next
     self.head = node
+    tail = node
 
     # Check the rest.
     while node and node.next:
@@ -93,6 +98,8 @@ class LinkedList(object):
         node.next = node.next.next
       else:
         node = node.next
+        tail = node
+    self.tail = tail
 
   # TODO (mateo) Somewhere, sometime.
   def cons(self, other):
