@@ -16,5 +16,6 @@ python_tests(
   dependencies = [
     ':sorting_test_base',
     'src/python/betarepo/algorithms/sorting',
+    'src/python/betarepo/datastructures/trees',
   ]
 )

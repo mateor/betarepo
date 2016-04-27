@@ -39,7 +39,6 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 # which is space efficient.
 
 
-import unittest
 import random
 
 from betarepo.datastructures.comparison_mixin import ComparisonMixin
@@ -47,6 +46,10 @@ from betarepo.datastructures.trees.heap import Heap
 
 
 def heapsort(A):
+  # HEAPSORT procedure takes time O(n lg n), since the call to BUILD_HEAP takes time O(n) and
+  #  each of the n -1 calls to Heapify takes time O(lg n).
+
+
   # implement when the heap is done.
   pass
 
@@ -62,46 +65,3 @@ if __name__ == '__main__':
     greg.heapify(num)
 
   import pdb; pdb.set_trace()
-
-
- # Not yet ready to break into its own test yet.
-
-class SortTest(unittest.TestCase):
-
-  def test_empty(self):
-    self.assertEqual(insertionsort([]), [])
-
-  def test_single(self):
-    self.assertEquals(insertionsort([1]), [1])
-
-  def test_base_case(self):
-    self.assertEqual(insertionsort([1, 0]), [0, 1])
-
-  def test_simple(self):
-    self.assertEqual(insertionsort([4, 5, 5, 3]), [3, 4, 5, 5])
-
-  def test_sorted(self):
-    self.assertEquals(insertionsort([1, 2, 3]), [1, 2, 3])
-
-  def test_sorts_last(self):
-    self.assertEquals(insertionsort([1, 1, 1, 1, 1, 1, 1, 1, 1, 0]), [0, 1, 1, 1, 1, 1, 1, 1, 1, 1] )
-
-  def test_returns_all_elements(self):
-    random_list = [ random.randint(-100, 100) for i in range(random.randint(0, 200))]
-    length = len(random_list)
-    self.assertEquals(len(insertionsort(random_list)), length)
-
-  def test_is_sorted(self):
-    random_list = [ random.randint(-100, 100) for i in range(random.randint(0, 200))]
-    self.assertEquals((insertionsort(random_list)), sorted(random_list))
-
-  def test_mixed_types(self):
-    a_list = [1,  'game', "baldur's gate", 2, 'a', 9, 4, 5, -99, 99]
-    self.assertEquals(insertionsort(a_list), sorted(a_list))
-
-  def test_bad_input(self):
-    with self.assertRaises(TypeError):
-      insertionsort('a very bad memory of not remembering an ascii code')
-
-### Test Suite ###
-

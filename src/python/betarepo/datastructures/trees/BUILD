@@ -9,3 +9,11 @@ python_library(
     'src/python/betarepo/datastructures:comparison_mixin',
   ]
 )
+
+python_binary(
+  name='run',
+  source='heap.py',
+  dependencies = [
+    'src/python/betarepo/datastructures:comparison_mixin',
+  ]
+)
