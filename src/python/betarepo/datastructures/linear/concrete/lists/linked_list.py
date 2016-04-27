@@ -31,7 +31,6 @@ class LinkedList(object):
       node = node.next
 
   def __len__(self):
-    # Could use a 'size' attribute instead...it litters extra code into the methods but at least len could be O(1)...
     node = self.head
     length = 0
     while node:
@@ -82,24 +81,20 @@ class LinkedList(object):
 
   def delete_all_instances(self, value):
     """Remove all nodes from the list if their content matches value."""
-    # I added this as a last-minute lark. It doesn't fit in this module.
     # TODO(mateo): Move to a better spot or delete.
 
-    # Check the head
-    node = self.head
-    while node and node.value == value:
-      node = node.next
-    self.head = node
-    tail = node
+    # Set the head
+    while self.head and self.head.value == value:
+      self.head = self.head.next
 
-    # Check the rest.
-    while node and node.next:
-      if node.next.value == value:
-        node.next = node.next.next
+    # Set the tail.
+    self.tail = self.head
+
+    while self.tail and self.tail.next:
+      if self.tail.next.value == value:
+        self.tail.next = self.tail.next.next
       else:
-        node = node.next
-        tail = node
-    self.tail = tail
+        self.tail = self.tail.next
 
   # TODO (mateo) Somewhere, sometime.
   def cons(self, other):

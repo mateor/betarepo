@@ -26,7 +26,6 @@ class DynamicArrayStack(Stack):
 
   # Maybe a decorator - although I don't want it adding noise perf analysis.
 
-
   # TODO(deallocate - must be a threshold less than 1/a to proovide hysteresis)
 
   def __init__(self, capacity=None, growth_factor=None):
