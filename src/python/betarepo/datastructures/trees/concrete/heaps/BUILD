@@ -3,7 +3,7 @@
 # Copyright (c) 2016 mateor
 
 python_library(
-  name = 'trees',
+  name = 'concrete',
   sources = globs('*.py'),
   dependencies = [
     'src/python/betarepo/datastructures:comparison_mixin',
@@ -12,7 +12,7 @@ python_library(
 
 python_binary(
   name='run',
-  source='heap.py',
+  source='array_heap.py',
   dependencies = [
     'src/python/betarepo/datastructures:comparison_mixin',
   ]

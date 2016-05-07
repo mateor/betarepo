@@ -10,7 +10,7 @@ from abc import ABCMeta, abstractmethod
 
 
 class QueueException(Exception):
-  """Raise when a stack method would cause the stack to reach an illegal state,."""
+  """Raise when a queue method would cause the structure to reach an illegal state,."""
 
 
 class Queue(object):

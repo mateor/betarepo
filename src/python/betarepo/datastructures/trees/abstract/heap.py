@@ -9,11 +9,11 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 from abc import ABCMeta, abstractmethod
 
 
-class ListException(Exception):
-  """Raise when a list method would cause the list to reach an illegal state,."""
+class HeapException(Exception):
+  """Raise when a heap method would cause the heap to reach an illegal state,."""
 
 
-class List(object):
+class Heap(object):
   __metaclass__ = ABCMeta
 
   @abstractmethod
@@ -25,13 +25,22 @@ class List(object):
     pass
 
   @abstractmethod
-  def find(self, item):
+  def size(self):
     pass
 
   @abstractmethod
-  def find_at_index(self, index):
+  def peek(self, index):
     pass
 
   @abstractmethod
   def is_empty(self):
+    pass
+
+  @abstractmethod
+  def make_empty(self):
+    pass
+
+  # I added this - probably has no place here.
+  @abstractmethod
+  def is_heap(self):
     pass

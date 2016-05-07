@@ -6,7 +6,6 @@ python_library(
   name = 'sorting',
   sources = globs('*.py'),
   dependencies = [
-    'src/python/betarepo/datastructures:comparison_mixin',
-    'src/python/betarepo/datastructures/trees'
+
   ]
 )

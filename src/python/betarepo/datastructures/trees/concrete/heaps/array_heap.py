@@ -6,10 +6,13 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
                         unicode_literals, with_statement)
 
 
+import math
+import random
+
 from betarepo.datastructures.comparison_mixin import ComparisonMixin
 
 
-class Heap(ComparisonMixin):
+class ArrayHeap(ComparisonMixin):
   """An array-based implementation of a heap binary tree.
 
 
@@ -20,16 +23,19 @@ class Heap(ComparisonMixin):
   # BinaryHeap is a binary tree with two additional constraints.
     # Shape property
     #    * A complete binary tree
-    #         * all levels but the last are full and levels fill from left to right.
+    #         * all levels but possibly the last are full and levels fill from left to right.
     # Heap Property
-    #     * All node values are >= or <=  each of their children
-    #         * Either a min heap (all children >=) or a max heap (all all children <=)
+    #     * Heaps are either:
+    #         * empty
+    #          or
+    #         * Root has a value greater than both children or less than both children
+    #       Each child is the root of heap maintaining that saem contract.
 
   # Heaps are useful for:
-  #    * priority queues.
+  #    * priority queues (usually with a max heap).
   #    * selection algorithms
   #       * e.g. find the kth order statistic ( the kth smallest number in a list or array)
-  #         heap is obviously useful for the min/max depending on the heap.
+  #         heap is obviously useful for the min or max.
   #    * Graph algorithms, like Prims and Dijkstras shortest path.
   #
 
@@ -53,10 +59,14 @@ class Heap(ComparisonMixin):
     """Return the index number for the node's right child - does not verify or check for existence."""
     return 2 * index + 2
 
+  @staticmethod
+  def height(size):
+    return int(math.log(size, 2) + 1)
+
   def __init__(self, A, min_heap=True):
     self.root = A[0]
     self.heap = A
-    self.count = len(A) - 1
+    self.size = len(A)
 
 
 
@@ -83,7 +93,7 @@ class Heap(ComparisonMixin):
     # Extracts the min or max. Depending on the value of self.min_heap, the extract takes O(n) or O(log N).
     pass
 
-  def sift_down(self, index):
+  def bubble_up(self, index):
     """Add a node and enforce the heap properties.
 
     Runs in log N time.
@@ -103,17 +113,14 @@ class Heap(ComparisonMixin):
 
 
   def insert(self, value):
-    index = self.count
+    index = self.size
 
     # TODO(mateo) - make a dynamicly resizing queue for this.
     self.heap.append(value)
-    self.count += 1
-    self.sift_down(index)
+    self.size += 1
+    self.bubble_up(index)
 
-
-  def __repr__(self):
-    return '{}'.format(self.heap)
-
-greg = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]
-joey = Heap(greg)
 # joey.heap[10] > joey.heap[joey.parent(10)]
+
+
+# from betarepo.datastructures.trees.concrete.heaps.array_heap import ArrayHeap

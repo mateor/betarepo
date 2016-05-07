@@ -42,7 +42,7 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 import random
 
 from betarepo.datastructures.comparison_mixin import ComparisonMixin
-from betarepo.datastructures.trees.heap import Heap
+from betarepo.datastructures.trees.concrete.heaps import ArrayHeap
 
 
 def heapsort(A):
