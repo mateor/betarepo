@@ -9,5 +9,5 @@ python_tests(
   ],
   dependencies = [
     'src/python/betarepo/algorithms/sorting',
-  ]
+  ],
 )

@@ -5,6 +5,4 @@
 python_library(
   name = 'comparison_mixin',
   sources = globs('*.py'),
-  dependencies = [
-  ]
 )

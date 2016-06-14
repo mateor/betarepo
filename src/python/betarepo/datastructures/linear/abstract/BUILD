@@ -6,5 +6,4 @@
 python_library(
   name = 'abstract',
   sources = globs('*.py'),
-  dependencies = []
 )

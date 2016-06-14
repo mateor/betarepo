@@ -7,5 +7,5 @@ python_library(
   sources = globs('*.py'),
   dependencies = [
     'src/python/betarepo/datastructures/linear/abstract',
-  ]
+  ],
 )

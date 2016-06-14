@@ -42,8 +42,7 @@ from __future__ import (absolute_import, division, generators, nested_scopes, pr
 import random
 
 from betarepo.datastructures.comparison_mixin import ComparisonMixin
-from betarepo.datastructures.trees.concrete.heaps import ArrayHeap
-
+from betarepo.datastructures.trees.concrete.heaps.array_heap import ArrayHeap
 
 def heapsort(A):
   # HEAPSORT procedure takes time O(n lg n), since the call to BUILD_HEAP takes time O(n) and
@@ -54,14 +53,3 @@ def heapsort(A):
   pass
 
 
-### Test Suite ###
-
-
-if __name__ == '__main__':
-  #unittest.main()
-  greg = Heap()
-  nums = [2, 3, 6, 7, 8, 5, 90, 11, 78, 1, ]
-  for num in nums:
-    greg.heapify(num)
-
-  import pdb; pdb.set_trace()

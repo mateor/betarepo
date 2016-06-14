@@ -12,7 +12,7 @@ import random
 from betarepo.datastructures.comparison_mixin import ComparisonMixin
 
 
-class ArrayHeap(ComparisonMixin):
+class ArrayHeap(ComparisonMixin, object):
   """An array-based implementation of a heap binary tree.
 
 

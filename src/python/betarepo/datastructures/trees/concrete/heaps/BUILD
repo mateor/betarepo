@@ -3,11 +3,11 @@
 # Copyright (c) 2016 mateor
 
 python_library(
-  name = 'concrete',
+  name = 'heaps',
   sources = globs('*.py'),
   dependencies = [
     'src/python/betarepo/datastructures:comparison_mixin',
-  ]
+  ],
 )
 
 python_binary(

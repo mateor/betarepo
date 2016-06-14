@@ -14,7 +14,6 @@ python_tests(
   name = 'sorting',
   sources = globs('test*.py'),
   dependencies = [
-    ':sorting_test_base',
     'src/python/betarepo/algorithms/sorting',
-  ]
+  ],
 )

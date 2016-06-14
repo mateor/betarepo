@@ -19,6 +19,8 @@ PYTHON=${PYTHON:-$(which python2.7)}
 PANTS_HOME="${PANTS_HOME:-${HOME}/.cache/pants/setup}"
 PANTS_BOOTSTRAP="${PANTS_HOME}/bootstrap-$(uname -s)-$(uname -m)"
 
+PYTHON_REQUIREMENTS="3rdparty/python/requirements.txt"
+
 VENV_VERSION=13.1.0
 
 VENV_PACKAGE=virtualenv-${VENV_VERSION}
@@ -76,6 +78,7 @@ function bootstrap_pants {
       "${PYTHON}" "${venv_path}/virtualenv.py" "${staging_dir}/install" && \
       source "${staging_dir}/install/bin/activate" && \
       pip install "${pants_requirement}" && \
+      pip install -r "${PYTHON_REQUIREMENTS}" && \
       ln -s "${staging_dir}/install" "${staging_dir}/${pants_version}" && \
       mv "${staging_dir}/${pants_version}" "${PANTS_BOOTSTRAP}/${pants_version}"
     ) 1>&2

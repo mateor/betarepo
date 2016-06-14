@@ -5,14 +5,16 @@
 python_library(
   name = 'stack_base',
   sources = ['stack_test_base.py'],
-  dependencies = []
+  dependencies = [
+    'src/python/betarepo/datastructures/linear/abstract',
+  ],
 )
 
 python_tests(
   name = 'stacks',
   sources = globs('test*.py'),
   dependencies = [
-    ':stack_base',
+    'src/python/betarepo/datastructures/linear/abstract',
     'src/python/betarepo/datastructures/linear/concrete/stacks',
-  ]
+  ],
 )
